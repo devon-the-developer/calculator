@@ -14,43 +14,44 @@
         <!-- Row of Buttons (div)-->
             <!--AC CE % / -->
         <div class="row">
-            <button class="ctrl">AC</button>
+            <button class="ctrl" id="clear">AC</button>
             <button class="ctrl">CE</button>
-            <button>%</button>
-            <button>÷</button>
+            <button >%</button>
+            <button id="divide" onclick="buttonClicked('÷')">÷</button>
         </div>
         <!-- New row -->
         <!-- 7 8 9 X -->
         <div class="row">
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>x</button>
+            <button id="seven" onclick="buttonClicked('7')">7</button>
+            <button id="eight" onclick="buttonClicked('8')">8</button>
+            <button id="nine" onclick="buttonClicked('9')">9</button>
+            <button id="multiply" onclick="buttonClicked('x')">x</button>
         </div>
         <!-- New Row -->
         <!-- 4 5 6 - -->
         <div class="row">
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
+            <button id="four" onclick="buttonClicked('4')">4</button>
+            <button id="five" onclick="buttonClicked('5')">5</button>
+            <button id="six" onclick="buttonClicked('6')">6</button>
+            <button id="subtract" onclick="buttonClicked('-')">-</button>
         </div>
         <!-- New Row -->
         <!-- 1 2 3 + --> 
         <div class="row">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="tall">+</button>
+            <button id="one" onclick="buttonClicked('1')">1</button>
+            <button id="two" onclick="buttonClicked('2')">2</button>
+            <button id="three" onclick="buttonClicked('3')">3</button>
+            <button class="tall" id ="add" onclick="buttonClicked('+')">+</button>
         </div>
         <!-- New Row -->
         <!-- 0 . = -->
         <div class="row">
-            <button>0</button>
-            <button>.</button>
-            <button>=</button>
+            <button id="zero" onclick="buttonClicked('0')">0</button>
+            <button id="decimal" onclick="buttonClicked('.')">.</button>
+            <button id="equals" onclick="buttonClicked('=')">=</button>
         </div>
-<!-- Could have javascript down here -->
     </div>
+<!-- Could have javascript down here -->
+<script src="calculator.js"></script>
 </body>
 </html>

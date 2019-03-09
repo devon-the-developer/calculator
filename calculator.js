@@ -1,6 +1,17 @@
 // Set global variables
 
+var valuesToCalculate = [];
+var total = 0;
+var temp = "";
+var buttonValue;
+
 //Check what buttons are clicked 
+
+
+function buttonClicked(buttonsValue) {
+    console.log(buttonsValue);
+}
+
     //Store button that is clicked in variable
     //Have a function that checks stored button variable against options then do them.
 
@@ -16,4 +27,4 @@
               /  - push temp and push /
             ( -  - push temp and check temp is not smaller than 0 then push - )
             (%  - push temp and push ((100 x temp) / total))
-              =  - perform calculation of array values
+              =  - perform calculation of array values */
