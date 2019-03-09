@@ -8,11 +8,10 @@ var temp = "";
 
 //Store button that is clicked in variable
 function buttonClicked(buttonsValue) {
-    //valuesToCalculate.push(buttonsValue);
-    checkWhatButtonIs(buttonsValue);
     console.log("Button Clicked: " + buttonsValue);
-    console.log("Stored ValuesToCalculate : " + valuesToCalculate);
     console.log("Stored temp: " + temp);
+    checkWhatButtonIs(buttonsValue);
+
     //displayTemp();
 }
 
@@ -27,6 +26,7 @@ function checkWhatButtonIs(buttonsValue) {
         temp = temp + buttonsValue;
     } else if (buttonsValue == "=") {
         valuesToCalculate.push(parseFloat(temp));
+        console.log("Stored ValuesToCalculate : " + valuesToCalculate);
         calculateAnswer();
     } else {
         valuesToCalculate.push(parseFloat(temp));
@@ -41,10 +41,13 @@ function checkWhatButtonIs(buttonsValue) {
 //     console.log("temp to be displayed: " + temp);
 // }
 
+//Calculate the result of array valuesToCalculate as string and then clear temp and valuesToCalculate
 function calculateAnswer() {
     var answerTotal = eval(valuesToCalculate.join(' '));
     console.log("Answer : " + answerTotal);
     storedTotal = answerTotal;
+    valuesToCalculate = [];
+    temp = "";
 }
 
         /* If AC - empty array, temp and total.
