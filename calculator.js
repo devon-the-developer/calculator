@@ -22,12 +22,16 @@ function buttonClicked(buttonsValue) {
         //If any other button rather than number, decimal or equals is clicked add temporary 
             //string to array then add the clicked symbol and clear temp
 function checkWhatButtonIs(buttonsValue) {
+
     if (!isNaN(buttonsValue) || buttonsValue === '.') {
         temp = temp + buttonsValue;
     } else if (buttonsValue == "=") {
         valuesToCalculate.push(parseFloat(temp));
         console.log("Stored ValuesToCalculate : " + valuesToCalculate);
         calculateAnswer();
+    //} else if (valuesToCalculate === [] && (buttonsValue == '+' || buttonsValue == '-' || buttonsValue == '*' || buttonsValue == '/')) {
+       // valuesToCalculate.push(storedTotal);
+    
     } else {
         valuesToCalculate.push(parseFloat(temp));
         valuesToCalculate.push(buttonsValue);
@@ -35,17 +39,16 @@ function checkWhatButtonIs(buttonsValue) {
     }
 }
 
-//Display on Calculator Screen 
-// function displayTemp() {
-//     document.getElementById("answer").innerHTML = temp;
-//     console.log("temp to be displayed: " + temp);
-// }
 
 //Calculate the result of array valuesToCalculate as string and then clear temp and valuesToCalculate
 function calculateAnswer() {
+    //checks to see if your starting a new calculation or continuing with old one
+    if (isNaN(valuesToCalculate[0])) {
+        valuesToCalculate[0] = storedTotal;
+    }
     var answerTotal = eval(valuesToCalculate.join(' '));
     console.log("Answer : " + answerTotal);
-    storedTotal = answerTotal;
+    storedTotal = parseFloat(answerTotal);
     valuesToCalculate = [];
     temp = "";
 }
