@@ -11,8 +11,6 @@ function buttonClicked(buttonsValue) {
     console.log("Button Clicked: " + buttonsValue);
     console.log("Stored temp: " + temp);
     checkWhatButtonIs(buttonsValue);
-
-    //displayTemp();
 }
 
     //Have a function that checks stored button variable against options then do them.
@@ -25,13 +23,12 @@ function checkWhatButtonIs(buttonsValue) {
 
     if (!isNaN(buttonsValue) || buttonsValue === '.') {
         temp = temp + buttonsValue;
+    // } else if (isNaN(buttonsValue) && buttonsValue == valuesToCalculate[valuesToCalculate.length - 1]) {
+    //     valuesToCalculate[valuesToCalculate - 1] = buttonsValue;
+    //     console.log(valuesToCalculate);
     } else if (buttonsValue == "=") {
         valuesToCalculate.push(parseFloat(temp));
-        console.log("Stored ValuesToCalculate : " + valuesToCalculate);
         calculateAnswer();
-    //} else if (valuesToCalculate === [] && (buttonsValue == '+' || buttonsValue == '-' || buttonsValue == '*' || buttonsValue == '/')) {
-       // valuesToCalculate.push(storedTotal);
-    
     } else {
         valuesToCalculate.push(parseFloat(temp));
         valuesToCalculate.push(buttonsValue);
@@ -43,9 +40,17 @@ function checkWhatButtonIs(buttonsValue) {
 //Calculate the result of array valuesToCalculate as string and then clear temp and valuesToCalculate
 function calculateAnswer() {
     //checks to see if your starting a new calculation or continuing with old one
+    console.log("Stored ValuesToCalculate : " + valuesToCalculate);
     if (isNaN(valuesToCalculate[0])) {
         valuesToCalculate[0] = storedTotal;
     }
+    //checks to see if any values are 'NaN' then replaces them with 0
+     for (i = 0; i < valuesToCalculate.length; i++) {
+         if (valuesToCalculate[i] !== valuesToCalculate[i]) {
+             valuesToCalculate[i] = 0;
+         }
+    }
+    console.log(valuesToCalculate);
     var answerTotal = eval(valuesToCalculate.join(' '));
     console.log("Answer : " + answerTotal);
     storedTotal = parseFloat(answerTotal);
