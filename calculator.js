@@ -22,6 +22,11 @@ function buttonClicked(buttonsValue) {
             //string to array then add the clicked symbol and clear temp
 function checkWhatButtonIs(buttonsValue) {
 
+    if (buttonsValue === 'clear') {
+        allClear();
+        return;
+    }
+
     if (!isNaN(buttonsValue) || buttonsValue === '.') {
         if (buttonsValue === '.'  && decimalPoint === true) {
             return;
@@ -73,7 +78,12 @@ function displayScreen(value) {
     }
 }
 
-
+function allClear() { 
+    temp = '';
+    storedTotal = 0;
+    valuesToCalculate = [];
+    decimalPoint = false;
+}
         /* If AC - empty array, temp and total.
               CE - empty temp.
               X  - push temp and push *
