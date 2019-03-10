@@ -69,6 +69,7 @@ function calculateAnswer() {
     displayScreen(storedTotal);
 }
 
+//display the number inputs on the calculator screen
 function displayScreen(value) {
     var onScreenText = value;
     if (onScreenText === '') {
@@ -78,16 +79,10 @@ function displayScreen(value) {
     }
 }
 
+//clear or reset all main variables
 function allClear() { 
     temp = '';
     storedTotal = 0;
     valuesToCalculate = [];
     decimalPoint = false;
 }
-        /* If AC - empty array, temp and total.
-              CE - empty temp.
-              X  - push temp and push *
-              /  - push temp and push /
-            ( -  - push temp and check temp is not smaller than 0 then push - )
-            (%  - push temp and push ((100 x temp) / total))
-              =  - perform calculation of array values */
