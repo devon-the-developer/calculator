@@ -3,7 +3,7 @@
 var valuesToCalculate = [];
 var storedTotal = 0;
 var temp = "";
-
+var decimalPoint = false;
 //Check what buttons are clicked 
 
 //Store button that is clicked in variable
@@ -23,14 +23,21 @@ function buttonClicked(buttonsValue) {
 function checkWhatButtonIs(buttonsValue) {
 
     if (!isNaN(buttonsValue) || buttonsValue === '.') {
+        if (buttonsValue === '.'  && decimalPoint === true) {
+            return;
+        } else if (buttonsValue === '.' && decimalPoint === false) {
+            decimalPoint = true;
+        }
         temp = temp + buttonsValue;
     } else if (buttonsValue == "=") {
         valuesToCalculate.push(parseFloat(temp));
         calculateAnswer();
+        decimalPoint = false;
     } else {
         valuesToCalculate.push(parseFloat(temp));
         valuesToCalculate.push(buttonsValue);
         temp = "";
+        decimalPoint = false;
     }
 }
 
@@ -65,6 +72,7 @@ function displayScreen(value) {
     document.getElementById('display').innerHTML = onScreenText;
     }
 }
+
 
         /* If AC - empty array, temp and total.
               CE - empty temp.
