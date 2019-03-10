@@ -19,6 +19,8 @@ p {
     color: black;
     font-family: Helvetica;
     font-size: 1em;
+    background-color: white;
+    padding: 15px;
 }
 /* Styling for calculator class 
     width:

@@ -11,6 +11,7 @@ function buttonClicked(buttonsValue) {
     console.log("Button Clicked: " + buttonsValue);
     console.log("Stored temp: " + temp);
     checkWhatButtonIs(buttonsValue);
+    displayScreen(temp);
 }
 
     //Have a function that checks stored button variable against options then do them.
@@ -23,9 +24,6 @@ function checkWhatButtonIs(buttonsValue) {
 
     if (!isNaN(buttonsValue) || buttonsValue === '.') {
         temp = temp + buttonsValue;
-    // } else if (isNaN(buttonsValue) && buttonsValue == valuesToCalculate[valuesToCalculate.length - 1]) {
-    //     valuesToCalculate[valuesToCalculate - 1] = buttonsValue;
-    //     console.log(valuesToCalculate);
     } else if (buttonsValue == "=") {
         valuesToCalculate.push(parseFloat(temp));
         calculateAnswer();
@@ -56,6 +54,16 @@ function calculateAnswer() {
     storedTotal = parseFloat(answerTotal);
     valuesToCalculate = [];
     temp = "";
+    displayScreen(storedTotal);
+}
+
+function displayScreen(value) {
+    var onScreenText = value;
+    if (onScreenText === '') {
+        onScreenText = '0';
+    } else {
+    document.getElementById('display').innerHTML = onScreenText;
+    }
 }
 
         /* If AC - empty array, temp and total.
