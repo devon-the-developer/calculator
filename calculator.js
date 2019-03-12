@@ -8,8 +8,6 @@ var decimalPoint = false;
 
 //Store button that is clicked in variable
 function buttonClicked(buttonsValue) {
-    console.log("Button Clicked: " + buttonsValue);
-    console.log("Stored temp: " + temp);
     checkWhatButtonIs(buttonsValue);
     displayScreen(temp);
 }
@@ -66,9 +64,7 @@ function checkIfAnyNanValues() {
 function calculateAnswer() {
     startingNewOrContinue();
     checkIfAnyNanValues();
-    console.log(valuesToCalculate);
     var answerTotal = eval(valuesToCalculate.join(' '));
-    console.log("Answer : " + answerTotal);
     storedTotal = parseFloat(answerTotal);
     valuesToCalculate = [];
     temp = "";
@@ -92,5 +88,4 @@ function allClear() {
     valuesToCalculate = [];
     decimalPoint = false;
     displayScreen('0');
-    console.log()
 }
