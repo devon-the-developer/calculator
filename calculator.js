@@ -46,14 +46,16 @@ function checkWhatButtonIs(buttonsValue) {
     }
 }
 
-
-//Calculate the result of array valuesToCalculate as string and then clear temp and valuesToCalculate
-function calculateAnswer() {
+function startingNewOrContinue() {
     //checks to see if your starting a new calculation or continuing with old one
-    console.log("Stored ValuesToCalculate : " + valuesToCalculate);
     if (isNaN(valuesToCalculate[0])) {
         valuesToCalculate[0] = storedTotal;
     }
+}
+
+//Calculate the result of array valuesToCalculate as string and then clear temp and valuesToCalculate
+function calculateAnswer() {
+    startingNewOrContinue();
     //checks to see if any values are 'NaN' then replaces them with 0
      for (i = 0; i < valuesToCalculate.length; i++) {
          if (valuesToCalculate[i] !== valuesToCalculate[i]) {
@@ -85,4 +87,6 @@ function allClear() {
     storedTotal = 0;
     valuesToCalculate = [];
     decimalPoint = false;
+    displayScreen('0');
+    console.log()
 }
