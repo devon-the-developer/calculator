@@ -53,15 +53,19 @@ function startingNewOrContinue() {
     }
 }
 
+function checkIfAnyNanValues() {
+//checks to see if any values are 'NaN' then replaces them with 0
+      for (i = 0; i < valuesToCalculate.length; i++) {
+          if (valuesToCalculate[i] !== valuesToCalculate[i]) {
+              valuesToCalculate[i] = 0;
+          }
+    }
+}
+
 //Calculate the result of array valuesToCalculate as string and then clear temp and valuesToCalculate
 function calculateAnswer() {
     startingNewOrContinue();
-    //checks to see if any values are 'NaN' then replaces them with 0
-     for (i = 0; i < valuesToCalculate.length; i++) {
-         if (valuesToCalculate[i] !== valuesToCalculate[i]) {
-             valuesToCalculate[i] = 0;
-         }
-    }
+    checkIfAnyNanValues();
     console.log(valuesToCalculate);
     var answerTotal = eval(valuesToCalculate.join(' '));
     console.log("Answer : " + answerTotal);
